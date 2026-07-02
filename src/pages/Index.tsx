@@ -78,6 +78,7 @@ const faq = [
 
 const Index = () => {
   const [gender, setGender] = useState<'male' | 'female'>('male');
+  const [age, setAge] = useState(28);
   const [weight, setWeight] = useState(75);
   const [activity, setActivity] = useState(1.55);
   const [goal, setGoal] = useState<'cut' | 'balance' | 'gain'>('balance');
@@ -86,8 +87,11 @@ const Index = () => {
   const [sent, setSent] = useState(false);
 
   const result = useMemo(() => {
-    const genderCoef = gender === 'male' ? 1 : 0.9;
-    const base = weight * 24 * activity * genderCoef;
+    // Формула Миффлина-Сан Жеора
+    const bmr = gender === 'male'
+      ? 10 * weight + 6.25 * 175 - 5 * age + 5
+      : 10 * weight + 6.25 * 163 - 5 * age - 161;
+    const base = bmr * activity;
     const factor = goal === 'cut' ? 0.8 : goal === 'gain' ? 1.15 : 1;
     const kcal = Math.round((base * factor) / 50) * 50;
     const protein = Math.round(weight * (goal === 'gain' ? 2.2 : 2));
@@ -97,7 +101,7 @@ const Index = () => {
       Math.abs(b.kcal - kcal) < Math.abs(a.kcal - kcal) ? b : a
     );
     return { kcal, protein, fat, carbs, plan };
-  }, [gender, weight, activity, goal]);
+  }, [gender, age, weight, activity, goal]);
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -233,6 +237,14 @@ const Index = () => {
                   </button>
                 ))}
               </div>
+            </div>
+            <div>
+              <label className="flex justify-between font-semibold mb-3">
+                <span>Ваш возраст</span><span className="text-primary">{age} лет</span>
+              </label>
+              <input type="range" min={16} max={70} value={age}
+                onChange={(e) => setAge(+e.target.value)}
+                className="w-full accent-primary cursor-pointer" />
             </div>
             <div>
               <label className="flex justify-between font-semibold mb-3">
