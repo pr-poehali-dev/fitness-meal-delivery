@@ -98,6 +98,23 @@ const Index = () => {
   const [name, setName] = useState('');
   const [contact, setContact] = useState('');
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSending(true);
+    const plan = `${result.plan.kcal} ккал — ${result.plan.name}`;
+    try {
+      await fetch('https://functions.poehali.dev/94a01583-67fb-4d2b-93f2-152ff97ae0de', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, contact, plan }),
+      });
+    } finally {
+      setSending(false);
+      setSent(true);
+    }
+  };
 
   const result = useMemo(() => {
     // Формула Миффлина-Сан Жеора
@@ -492,17 +509,15 @@ const Index = () => {
                 <p className="text-muted-foreground mt-1">Мы свяжемся с вами и забронируем слот.</p>
               </div>
             ) : (
-              <form
-                onSubmit={(e) => { e.preventDefault(); setSent(true); }}
-                className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <Input required placeholder="Ваше имя" value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="h-13 bg-background border-border" />
                 <Input required placeholder="Телефон или ссылка на Telegram" value={contact}
                   onChange={(e) => setContact(e.target.value)}
                   className="h-13 bg-background border-border" />
-                <Button type="submit" size="lg" className="w-full min-h-14 h-auto py-3 font-semibold text-base glow whitespace-normal leading-snug">
-                  Забронировать тестовую неделю по себестоимости
+                <Button type="submit" disabled={sending} size="lg" className="w-full min-h-14 h-auto py-3 font-semibold text-base glow whitespace-normal leading-snug">
+                  {sending ? 'Отправляем...' : 'Забронировать тестовую неделю по себестоимости'}
                 </Button>
                 <p className="text-xs text-muted-foreground text-center">
                   Нажимая кнопку, вы соглашаетесь на обработку персональных данных.
