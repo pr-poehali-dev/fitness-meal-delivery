@@ -137,7 +137,8 @@ const Index = () => {
               <Icon name="Zap" size={15} /> Шоковая заморозка −40°C
             </div>
             <h1 className="font-display font-bold uppercase leading-[0.95] text-5xl md:text-7xl mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
-              Следишь за фигурой,<br />
+              Следишь<br />
+              за фигурой,<br />
               но устал<br />
               <span className="text-primary">от готовки?</span>
             </h1>
