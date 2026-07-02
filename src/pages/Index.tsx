@@ -360,7 +360,7 @@ const Index = () => {
           <h2 className="font-display font-bold uppercase text-3xl md:text-5xl max-w-3xl mb-14 leading-tight">
             В чём отличие от привычных альтернатив?
           </h2>
-          <div className="space-y-4">
+          <div className="space-y-4 mb-10">
             {[
               { name: 'Обычная кулинария', text: 'Мало белка, много скрытых жиров, размытый КБЖУ', bad: true },
               { name: 'Fresh-доставки каждые 2 дня', text: 'Дорого, привязка к курьерам, еда быстро киснет', bad: true },
@@ -375,6 +375,18 @@ const Index = () => {
                 <p className={r.bad ? 'text-muted-foreground' : 'text-foreground'}>{r.text}</p>
               </div>
             ))}
+          </div>
+          <div className="rounded-2xl border border-secondary/40 bg-secondary/5 p-7 flex flex-col md:flex-row gap-6 items-start">
+            <div className="w-14 h-14 rounded-2xl bg-secondary/15 text-secondary flex items-center justify-center shrink-0">
+              <Icon name="FlaskConical" size={28} />
+            </div>
+            <div>
+              <p className="font-display font-bold text-xl uppercase mb-2 text-secondary">Доказано наукой</p>
+              <p className="text-muted-foreground leading-relaxed">
+                Международные исследования доказали: технология мгновенного «шока» при −40°C останавливает распад нутриентов на клеточном уровне.{' '}
+                <span className="text-foreground font-semibold">95% витаминов и аминокислот остаются в неизменном виде.</span>
+              </p>
+            </div>
           </div>
         </div>
       </section>
