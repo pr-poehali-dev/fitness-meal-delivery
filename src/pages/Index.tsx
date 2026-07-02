@@ -501,7 +501,7 @@ const Index = () => {
                 <Input required placeholder="Телефон или ссылка на Telegram" value={contact}
                   onChange={(e) => setContact(e.target.value)}
                   className="h-13 bg-background border-border" />
-                <Button type="submit" size="lg" className="w-full h-14 font-semibold text-base glow">
+                <Button type="submit" size="lg" className="w-full min-h-14 h-auto py-3 font-semibold text-base glow whitespace-normal leading-snug">
                   Забронировать тестовую неделю по себестоимости
                 </Button>
                 <p className="text-xs text-muted-foreground text-center">
