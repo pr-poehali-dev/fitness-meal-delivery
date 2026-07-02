@@ -16,7 +16,7 @@ const FREEZER_IMG =
 const BOX_IMG =
   'https://cdn.poehali.dev/projects/6adee1cd-5caa-4d4a-96ad-0526c2884609/files/40ceaaeb-5ae3-4883-b211-f6158465bb5a.jpg';
 const ATHLETE_IMG =
-  'https://cdn.poehali.dev/projects/6adee1cd-5caa-4d4a-96ad-0526c2884609/files/f2e22a73-b022-4b5a-8758-c6a40326e778.jpg';
+  'https://cdn.poehali.dev/projects/6adee1cd-5caa-4d4a-96ad-0526c2884609/files/68e75d46-b8d1-42ec-b2fa-760a974629a9.jpg';
 
 const scrollTo = (id: string) =>
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
