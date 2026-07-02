@@ -20,7 +20,7 @@ const plans = [
     kcal: 1500,
     name: 'Сушка и рельеф',
     meals: '3 блюда в день',
-    desc: 'Чистый белок и сложные углеводы',
+    desc: '',
     old: '9 100',
     price: '7 735',
     popular: false,
@@ -29,7 +29,7 @@ const plans = [
     kcal: 2000,
     name: 'Баланс и форма',
     meals: '4 блюда в день',
-    desc: 'Повышенная порция чистого филе',
+    desc: '',
     old: '11 500',
     price: '9 775',
     popular: true,
@@ -38,7 +38,7 @@ const plans = [
     kcal: 2500,
     name: 'Набор массы',
     meals: '5 блюд в день',
-    desc: 'Максимум мяса и сложных углеводов',
+    desc: '',
     old: '14 000',
     price: '11 900',
     popular: false,
@@ -77,6 +77,7 @@ const faq = [
 ];
 
 const Index = () => {
+  const [gender, setGender] = useState<'male' | 'female'>('male');
   const [weight, setWeight] = useState(75);
   const [activity, setActivity] = useState(1.55);
   const [goal, setGoal] = useState<'cut' | 'balance' | 'gain'>('balance');
@@ -85,7 +86,8 @@ const Index = () => {
   const [sent, setSent] = useState(false);
 
   const result = useMemo(() => {
-    const base = weight * 24 * activity;
+    const genderCoef = gender === 'male' ? 1 : 0.9;
+    const base = weight * 24 * activity * genderCoef;
     const factor = goal === 'cut' ? 0.8 : goal === 'gain' ? 1.15 : 1;
     const kcal = Math.round((base * factor) / 50) * 50;
     const protein = Math.round(weight * (goal === 'gain' ? 2.2 : 2));
@@ -95,7 +97,7 @@ const Index = () => {
       Math.abs(b.kcal - kcal) < Math.abs(a.kcal - kcal) ? b : a
     );
     return { kcal, protein, fat, carbs, plan };
-  }, [weight, activity, goal]);
+  }, [gender, weight, activity, goal]);
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -219,6 +221,20 @@ const Index = () => {
         <div className="grid lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
           <div className="rounded-2xl border border-border bg-card p-8 space-y-8">
             <div>
+              <p className="font-semibold mb-3">Ваш пол</p>
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  { v: 'male', l: 'Мужской', i: 'Mars' },
+                  { v: 'female', l: 'Женский', i: 'Venus' },
+                ].map((g) => (
+                  <button key={g.v} onClick={() => setGender(g.v as typeof gender)}
+                    className={`rounded-xl border py-3 flex items-center justify-center gap-2 text-sm font-medium transition-colors ${gender === g.v ? 'border-primary bg-primary/15 text-primary' : 'border-border text-muted-foreground hover:border-primary/40'}`}>
+                    <Icon name={g.i} size={18} /> {g.l}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div>
               <label className="flex justify-between font-semibold mb-3">
                 <span>Ваш вес</span><span className="text-primary">{weight} кг</span>
               </label>
@@ -336,7 +352,7 @@ const Index = () => {
               )}
               <div className="font-display font-bold text-4xl uppercase mb-1">{p.kcal} <span className="text-lg text-muted-foreground">ккал</span></div>
               <p className="font-semibold text-primary mb-1">{p.name}</p>
-              <p className="text-sm text-muted-foreground mb-6">{p.meals} · {p.desc}</p>
+              <p className="text-sm text-muted-foreground mb-6">{p.meals}{p.desc ? ` · ${p.desc}` : ''}</p>
               <div className="mb-6">
                 <span className="text-muted-foreground line-through mr-2">{p.old} ₽</span>
                 <span className="font-display font-bold text-3xl">{p.price} ₽</span>
