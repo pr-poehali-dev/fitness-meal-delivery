@@ -19,29 +19,35 @@ const plans = [
   {
     kcal: 1500,
     name: 'Сушка и рельеф',
-    meals: '3 блюда в день',
-    desc: '',
-    old: '9 100',
-    price: '7 735',
+    mealsPerDay: 3,
     popular: false,
+    options: [
+      { days: 3, meals: 9,  label: 'Базовый',         discount: null,  old: null,      price: '3 900' },
+      { days: 5, meals: 15, label: 'Скидка 10%',       discount: '10%', old: '6 500',   price: '5 850' },
+      { days: 7, meals: 21, label: 'Самый выгодный',   discount: '15%', old: '9 100',   price: '7 735' },
+    ],
   },
   {
     kcal: 2000,
     name: 'Баланс и форма',
-    meals: '4 блюда в день',
-    desc: '',
-    old: '11 500',
-    price: '9 775',
+    mealsPerDay: 4,
     popular: true,
+    options: [
+      { days: 3, meals: 12, label: 'Базовый',         discount: null,  old: null,      price: '4 900' },
+      { days: 5, meals: 20, label: 'Скидка 10%',       discount: '10%', old: '8 200',   price: '7 380' },
+      { days: 7, meals: 28, label: 'Самый выгодный',   discount: '15%', old: '11 500',  price: '9 775' },
+    ],
   },
   {
     kcal: 2500,
     name: 'Набор массы',
-    meals: '5 блюд в день',
-    desc: '',
-    old: '14 000',
-    price: '11 900',
+    mealsPerDay: 5,
     popular: false,
+    options: [
+      { days: 3, meals: 15, label: 'Базовый',         discount: null,  old: null,      price: '6 000' },
+      { days: 5, meals: 25, label: 'Скидка 10%',       discount: '10%', old: '10 000',  price: '9 000' },
+      { days: 7, meals: 35, label: 'Самый выгодный',   discount: '15%', old: '14 000',  price: '11 900' },
+    ],
   },
 ];
 
@@ -103,6 +109,8 @@ const Index = () => {
     );
     return { kcal, protein, fat, carbs, plan };
   }, [gender, age, height, weight, activity, goal]);
+
+  const [selectedDays, setSelectedDays] = useState<Record<number, number>>({ 1500: 7, 2000: 7, 2500: 7 });
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -317,7 +325,7 @@ const Index = () => {
             <div className="mt-auto rounded-xl bg-primary/10 border border-primary/30 p-5">
               <p className="text-sm text-muted-foreground mb-1">Рекомендуем тариф</p>
               <p className="font-display font-bold text-2xl uppercase mb-1">{result.plan.kcal} ккал · {result.plan.name}</p>
-              <p className="text-sm text-muted-foreground">{result.plan.meals}</p>
+              <p className="text-sm text-muted-foreground">{result.plan.mealsPerDay} блюда в день</p>
             </div>
             <Button onClick={() => scrollTo('form')} className="mt-6 h-12 font-semibold">
               Забронировать этот тариф
@@ -365,28 +373,53 @@ const Index = () => {
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-6 items-start">
-          {plans.map((p) => (
-            <div key={p.kcal}
-              className={`relative rounded-2xl border p-8 flex flex-col ${p.popular ? 'border-primary bg-gradient-to-b from-primary/10 to-card glow md:-translate-y-4' : 'border-border bg-card'}`}>
-              {p.popular && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-semibold uppercase tracking-wider px-4 py-1.5 rounded-full">
-                  Выбор тренеров
-                </span>
-              )}
-              <div className="font-display font-bold text-4xl uppercase mb-1">{p.kcal} <span className="text-lg text-muted-foreground">ккал</span></div>
-              <p className="font-semibold text-primary mb-1">{p.name}</p>
-              <p className="text-sm text-muted-foreground mb-6">{p.meals}{p.desc ? ` · ${p.desc}` : ''}</p>
-              <div className="mb-6">
-                <span className="text-muted-foreground line-through mr-2">{p.old} ₽</span>
-                <span className="font-display font-bold text-3xl">{p.price} ₽</span>
-                <span className="text-sm text-muted-foreground"> / 7 дней</span>
+          {plans.map((p) => {
+            const days = selectedDays[p.kcal];
+            const opt = p.options.find(o => o.days === days)!;
+            return (
+              <div key={p.kcal}
+                className={`relative rounded-2xl border p-8 flex flex-col ${p.popular ? 'border-primary bg-gradient-to-b from-primary/10 to-card glow md:-translate-y-4' : 'border-border bg-card'}`}>
+                {p.popular && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-semibold uppercase tracking-wider px-4 py-1.5 rounded-full">
+                    Выбор тренеров
+                  </span>
+                )}
+                <div className="font-display font-bold text-4xl uppercase mb-1">{p.kcal} <span className="text-lg text-muted-foreground">ккал</span></div>
+                <p className="font-semibold text-primary mb-1">{p.name}</p>
+                <p className="text-sm text-muted-foreground mb-5">{p.mealsPerDay} блюда в день · {opt.meals} блюд</p>
+
+                <div className="grid grid-cols-3 gap-1.5 mb-6">
+                  {p.options.map(o => (
+                    <button key={o.days}
+                      onClick={() => setSelectedDays(prev => ({ ...prev, [p.kcal]: o.days }))}
+                      className={`rounded-lg border py-2 text-xs font-semibold transition-colors ${days === o.days ? 'border-primary bg-primary/15 text-primary' : 'border-border text-muted-foreground hover:border-primary/40'}`}>
+                      {o.days} дней
+                      {o.discount && <div className="text-[10px] opacity-80">{o.discount}</div>}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="mb-6">
+                  {opt.old
+                    ? <><span className="text-muted-foreground line-through mr-2">{opt.old} ₽</span><span className="font-display font-bold text-3xl">{opt.price} ₽</span></>
+                    : <span className="font-display font-bold text-3xl">{opt.price} ₽</span>
+                  }
+                  <span className="text-sm text-muted-foreground"> / {opt.days} дней</span>
+                </div>
+
+                {opt.label !== 'Базовый' && (
+                  <div className="mb-5 inline-flex items-center gap-1.5 text-xs font-semibold text-primary bg-primary/10 border border-primary/30 rounded-full px-3 py-1 w-fit">
+                    <Icon name="Tag" size={12} /> {opt.label}
+                  </div>
+                )}
+
+                <Button onClick={() => scrollTo('form')} variant={p.popular ? 'default' : 'outline'}
+                  className={`mt-auto h-12 font-semibold ${p.popular ? '' : 'border-primary/40'}`}>
+                  Выбрать тариф
+                </Button>
               </div>
-              <Button onClick={() => scrollTo('form')} variant={p.popular ? 'default' : 'outline'}
-                className={`mt-auto h-12 font-semibold ${p.popular ? '' : 'border-primary/40'}`}>
-                Выбрать тариф
-              </Button>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
