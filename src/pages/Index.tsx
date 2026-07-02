@@ -79,6 +79,7 @@ const faq = [
 const Index = () => {
   const [gender, setGender] = useState<'male' | 'female'>('male');
   const [age, setAge] = useState(28);
+  const [height, setHeight] = useState(175);
   const [weight, setWeight] = useState(75);
   const [activity, setActivity] = useState(1.55);
   const [goal, setGoal] = useState<'cut' | 'balance' | 'gain'>('balance');
@@ -89,8 +90,8 @@ const Index = () => {
   const result = useMemo(() => {
     // Формула Миффлина-Сан Жеора
     const bmr = gender === 'male'
-      ? 10 * weight + 6.25 * 175 - 5 * age + 5
-      : 10 * weight + 6.25 * 163 - 5 * age - 161;
+      ? 10 * weight + 6.25 * height - 5 * age + 5
+      : 10 * weight + 6.25 * height - 5 * age - 161;
     const base = bmr * activity;
     const factor = goal === 'cut' ? 0.8 : goal === 'gain' ? 1.15 : 1;
     const kcal = Math.round((base * factor) / 50) * 50;
@@ -101,7 +102,7 @@ const Index = () => {
       Math.abs(b.kcal - kcal) < Math.abs(a.kcal - kcal) ? b : a
     );
     return { kcal, protein, fat, carbs, plan };
-  }, [gender, age, weight, activity, goal]);
+  }, [gender, age, height, weight, activity, goal]);
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -244,6 +245,14 @@ const Index = () => {
               </label>
               <input type="range" min={16} max={70} value={age}
                 onChange={(e) => setAge(+e.target.value)}
+                className="w-full accent-primary cursor-pointer" />
+            </div>
+            <div>
+              <label className="flex justify-between font-semibold mb-3">
+                <span>Ваш рост</span><span className="text-primary">{height} см</span>
+              </label>
+              <input type="range" min={145} max={210} value={height}
+                onChange={(e) => setHeight(+e.target.value)}
                 className="w-full accent-primary cursor-pointer" />
             </div>
             <div>
