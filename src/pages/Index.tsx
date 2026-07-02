@@ -49,16 +49,16 @@ const problems = [
   {
     icon: 'ChefHat',
     title: 'Кухонное рабство',
-    text: 'Готовка сжирает до 5 часов выходных. К среде грудка сухая, и вы срываетесь на фастфуд.',
+    text: 'Готовка отнимает до 5 часов выходных. Цените своё время.',
   },
   {
     icon: 'Droplet',
     title: 'Скрытый жир',
-    text: 'Еда из супермаркетов перенасыщена дешёвым маслом и соусами. Вы перебираете по жирам и топчетесь на месте.',
+    text: 'Еда из супермаркетов перенасыщена дешёвым маслом и соусами. Вы перебираете по жирам и даже кардио не помогает.',
   },
   {
     icon: 'Truck',
-    title: 'Логистический хаос',
+    title: 'Зависимость от курьеров',
     text: 'Fresh-доставки привязывают к курьерам в 7 утра. Уехали на выходные — еда киснет, деньги сгорают.',
   },
 ];
@@ -138,7 +138,8 @@ const Index = () => {
             </div>
             <h1 className="font-display font-bold uppercase leading-[0.95] text-5xl md:text-7xl mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
               Следишь за фигурой,<br />
-              <span className="text-primary">но устал от готовки?</span>
+              но устал<br />
+              <span className="text-primary">от готовки?</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-xl mb-8 animate-fade-up" style={{ animationDelay: '0.2s' }}>
               Готовые фитнес-рационы шоковой заморозки с честным КБЖУ. Доставим еду на неделю вперёд и гарантируем улучшение качества тела.
@@ -175,7 +176,7 @@ const Index = () => {
       <section className="container py-24">
         <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-3">Проблема</p>
         <h2 className="font-display font-bold uppercase text-3xl md:text-5xl max-w-3xl mb-14 leading-tight">
-          Почему обычное питание ломает ваш спортивный результат?
+          Почему обычные способы питания ломают ваш спортивный результат?
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           {problems.map((p) => (
