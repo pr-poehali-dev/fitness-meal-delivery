@@ -11,6 +11,12 @@ import {
 
 const HERO_IMG =
   'https://cdn.poehali.dev/projects/6adee1cd-5caa-4d4a-96ad-0526c2884609/files/d6a47f04-6536-456d-a638-511929f72904.jpg';
+const FREEZER_IMG =
+  'https://cdn.poehali.dev/projects/6adee1cd-5caa-4d4a-96ad-0526c2884609/files/1e87d7db-bc57-4686-a5e2-2b34a739f4bb.jpg';
+const BOX_IMG =
+  'https://cdn.poehali.dev/projects/6adee1cd-5caa-4d4a-96ad-0526c2884609/files/40ceaaeb-5ae3-4883-b211-f6158465bb5a.jpg';
+const ATHLETE_IMG =
+  'https://cdn.poehali.dev/projects/6adee1cd-5caa-4d4a-96ad-0526c2884609/files/f2e22a73-b022-4b5a-8758-c6a40326e778.jpg';
 
 const scrollTo = (id: string) =>
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -203,13 +209,25 @@ const Index = () => {
       {/* SOLUTION */}
       <section className="relative py-24 grid-bg border-y border-border">
         <div className="container">
-          <p className="text-secondary font-semibold uppercase tracking-widest text-sm mb-3">Решение</p>
-          <h2 className="font-display font-bold uppercase text-3xl md:text-5xl max-w-3xl mb-6 leading-tight">
-            Сбалансированное питание на неделю в одной коробке
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mb-14 text-lg">
-            Мы убрали ежедневные курьерские доставки и скрытые калории. Повар готовит рационы по фитнес-стандартам, после чего еда отправляется в шкаф промышленной шоковой заморозки −40°C.
-          </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-14">
+            <div>
+              <p className="text-secondary font-semibold uppercase tracking-widest text-sm mb-3">Решение</p>
+              <h2 className="font-display font-bold uppercase text-3xl md:text-5xl max-w-3xl mb-6 leading-tight">
+                Сбалансированное питание на неделю в одной коробке
+              </h2>
+              <p className="text-muted-foreground text-lg">
+                Мы убрали ежедневные курьерские доставки и скрытые калории. Повар готовит рационы по фитнес-стандартам, после чего еда отправляется в шкаф промышленной шоковой заморозки −40°C.
+              </p>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden h-72 lg:h-80">
+              <img src={FREEZER_IMG} alt="Промышленная шоковая заморозка" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+              <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-background/80 backdrop-blur rounded-xl px-4 py-2 border border-border">
+                <Icon name="Thermometer" size={16} className="text-secondary" />
+                <span className="text-sm font-semibold">Шоковая заморозка −40°C</span>
+              </div>
+            </div>
+          </div>
           <div className="grid md:grid-cols-3 gap-6">
             {steps.map((s, i) => (
               <div key={s.title} className="relative rounded-2xl border border-border bg-card/80 backdrop-blur p-8">
@@ -363,14 +381,24 @@ const Index = () => {
 
       {/* PLANS */}
       <section id="plans" className="container py-24">
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-3">Тарифы</p>
-          <h2 className="font-display font-bold uppercase text-3xl md:text-5xl leading-tight mb-4">
-            Меню высокой точности
-          </h2>
-          <p className="text-muted-foreground">
-            Разработано спортивным технологом по ГОСТу и рекомендовано фитнес-тренерами. Скидка 15% на старте.
-          </p>
+        <div className="grid lg:grid-cols-2 gap-10 items-center mb-14">
+          <div>
+            <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-3">Тарифы</p>
+            <h2 className="font-display font-bold uppercase text-3xl md:text-5xl leading-tight mb-4">
+              Меню высокой точности
+            </h2>
+            <p className="text-muted-foreground">
+              Разработано спортивным технологом по ГОСТу и рекомендовано фитнес-тренерами. Скидка до 15% за объём.
+            </p>
+          </div>
+          <div className="relative rounded-2xl overflow-hidden h-64">
+            <img src={BOX_IMG} alt="Коробка с рационами" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/50 to-transparent" />
+            <div className="absolute bottom-4 right-4 flex items-center gap-2 bg-background/80 backdrop-blur rounded-xl px-4 py-2 border border-border">
+              <Icon name="Package" size={16} className="text-primary" />
+              <span className="text-sm font-semibold">До 35 блюд в одной коробке</span>
+            </div>
+          </div>
         </div>
         <div className="grid md:grid-cols-3 gap-6 items-start">
           {plans.map((p) => {
@@ -425,8 +453,17 @@ const Index = () => {
 
       {/* FORM */}
       <section id="form" className="relative py-24 grid-bg border-t border-border">
-        <div className="container max-w-2xl">
-          <div className="rounded-3xl border border-primary/40 bg-card p-8 md:p-12 glow">
+        <div className="container">
+          <div className="grid lg:grid-cols-2 gap-10 items-center max-w-5xl mx-auto">
+          <div className="relative rounded-2xl overflow-hidden h-full min-h-80 hidden lg:block">
+            <img src={ATHLETE_IMG} alt="Результат фитнес-питания" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6">
+              <p className="font-display font-bold text-2xl uppercase leading-tight mb-1">Твой результат начинается здесь</p>
+              <p className="text-sm text-muted-foreground">Первая тестовая партия — по себестоимости</p>
+            </div>
+          </div>
+          <div className="rounded-3xl border border-primary/40 bg-card p-8 md:p-10 glow">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary mb-6">
               <Icon name="Lock" size={15} /> Осталось 5 слотов
             </div>
@@ -460,6 +497,7 @@ const Index = () => {
                 </p>
               </form>
             )}
+          </div>
           </div>
         </div>
       </section>
