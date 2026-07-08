@@ -124,9 +124,11 @@ const Index = () => {
     const base = bmr * activity;
     const factor = goal === 'cut' ? 0.8 : goal === 'gain' ? 1.15 : 1;
     const kcal = Math.round((base * factor) / 50) * 50;
-    const protein = Math.round(weight * (goal === 'gain' ? 2.2 : 2));
-    const fat = Math.round((kcal * 0.25) / 9);
-    const carbs = Math.round((kcal - protein * 4 - fat * 9) / 4);
+    const proteinPerKg = goal === 'cut' ? 2.2 : goal === 'gain' ? 1.9 : 1.8;
+    const fatPerKg = goal === 'cut' ? 0.8 : goal === 'gain' ? 1.1 : 1;
+    const protein = Math.round(weight * proteinPerKg);
+    const fat = Math.round(weight * fatPerKg);
+    const carbs = Math.max(0, Math.round((kcal - protein * 4 - fat * 9) / 4));
     const plan = plans.reduce((a, b) =>
       Math.abs(b.kcal - kcal) < Math.abs(a.kcal - kcal) ? b : a
     );
