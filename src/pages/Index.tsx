@@ -60,7 +60,7 @@ const plans = [
 const problems = [
   {
     icon: 'ChefHat',
-    title: 'Кухонное рабство',
+    title: 'Рутинная готовка',
     text: 'Готовка отнимает от 5 до 10 часов в неделю. Рано или поздно вам это надоест и вы сорвётесь на фастфуд.',
   },
   {
@@ -70,7 +70,7 @@ const problems = [
   },
   {
     icon: 'Truck',
-    title: 'Зависимость от курьеров',
+    title: 'Постоянное ожидание курьеров',
     text: 'Fresh-доставки привязывают к курьерам в 7 утра. Уехали на выходные — еда портится, а деньги сгорают.',
   },
 ];
@@ -210,7 +210,7 @@ const Index = () => {
       <section className="container py-24">
         <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-3">Проблема</p>
         <h2 className="font-display font-bold uppercase text-3xl md:text-5xl max-w-3xl mb-14 leading-tight">
-          Почему обычные способы питания ломают ваш спортивный результат?
+          Почему привычные способы питания не доводят вас до результата?
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           {problems.map((p) => (
@@ -382,8 +382,8 @@ const Index = () => {
           <div className="space-y-4 mb-10">
             {[
               { name: 'Обычная кулинария', text: 'Мало белка, много скрытых жиров, размытый КБЖУ', bad: true },
-              { name: 'Fresh-доставки каждые 2 дня', text: 'Дорого, привязка к курьерам, еда быстро киснет', bad: true },
-              { name: 'FROST FUEL', text: 'Честный КБЖУ, доставка 1 раз в неделю, выгоднее, хранится без риска испортиться', bad: false },
+              { name: 'Ежедневные fresh-доставки', text: 'Дорого, привязка к курьерам, еда портится за 2 дня', bad: true },
+              { name: 'FROST FUEL', text: 'Честный сбалансированный КБЖУ для улучшения качества тела, доставка всего 1 раз в неделю, еда хранится месяцами, без риска испортиться', bad: false },
             ].map((r) => (
               <div key={r.name}
                 className={`flex flex-col md:flex-row md:items-center gap-3 md:gap-6 rounded-2xl border p-6 ${r.bad ? 'border-border bg-card' : 'border-primary/50 bg-primary/10 glow'}`}>
@@ -402,7 +402,7 @@ const Index = () => {
             <div>
               <p className="font-display font-bold text-xl uppercase mb-2 text-secondary">Доказано наукой</p>
               <p className="text-muted-foreground leading-relaxed">
-                Международные исследования доказали: технология мгновенного «шока» при −40°C останавливает распад нутриентов на клеточном уровне.{' '}
+                Международные исследования доказали: технология шоковой заморозки при −40°C останавливает распад нутриентов на клеточном уровне.{' '}
                 <span className="text-foreground font-semibold">95% витаминов и аминокислот остаются в неизменном виде.</span>
               </p>
             </div>
@@ -416,10 +416,10 @@ const Index = () => {
           <div>
             <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-3">Тарифы</p>
             <h2 className="font-display font-bold uppercase text-3xl md:text-5xl leading-tight mb-4">
-              Меню высокой точности
+              Выберите программу для вашей цели
             </h2>
             <p className="text-muted-foreground">
-              Разработано спортивным технологом по ГОСТу и рекомендовано фитнес-тренерами. Скидка до 15% за объём.
+              Разработано спортивным технологом и рекомендовано лучшими фитнес-тренерами. Скидка до 15% за объём.
             </p>
           </div>
           <div className="relative rounded-2xl overflow-hidden h-64">
