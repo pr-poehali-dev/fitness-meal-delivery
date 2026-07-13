@@ -18,6 +18,14 @@ const BOX_IMG =
 const ATHLETE_IMG =
   'https://cdn.poehali.dev/projects/6adee1cd-5caa-4d4a-96ad-0526c2884609/files/68e75d46-b8d1-42ec-b2fa-760a974629a9.jpg';
 
+const pluralMeals = (n: number) => {
+  const mod10 = n % 10;
+  const mod100 = n % 100;
+  if (mod10 === 1 && mod100 !== 11) return 'блюдо';
+  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 10 || mod100 >= 20)) return 'блюда';
+  return 'блюд';
+};
+
 const scrollTo = (id: string) =>
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
@@ -25,12 +33,12 @@ const plans = [
   {
     kcal: 1500,
     name: 'Сушка и рельеф',
-    mealsPerDay: 3,
+    mealsPerDay: '3–4',
     popular: false,
     options: [
-      { days: 3, meals: 9,  label: 'Базовый',         discount: null,  old: null,      price: '3 900' },
-      { days: 5, meals: 15, label: 'Скидка 10%',       discount: '10%', old: '6 500',   price: '5 850' },
-      { days: 7, meals: 21, label: 'Самый выгодный',   discount: '15%', old: '9 100',   price: '7 735' },
+      { days: 3, meals: 9,  label: 'Базовый',         discount: null,  old: null,      price: '3 450' },
+      { days: 5, meals: 15, label: 'Скидка 10%',       discount: '10%', old: '5 750',   price: '5 175' },
+      { days: 7, meals: 21, label: 'Самый выгодный',   discount: '15%', old: '8 050',   price: '6 843' },
     ],
   },
   {
@@ -39,9 +47,9 @@ const plans = [
     mealsPerDay: 4,
     popular: true,
     options: [
-      { days: 3, meals: 12, label: 'Базовый',         discount: null,  old: null,      price: '4 900' },
-      { days: 5, meals: 20, label: 'Скидка 10%',       discount: '10%', old: '8 200',   price: '7 380' },
-      { days: 7, meals: 28, label: 'Самый выгодный',   discount: '15%', old: '11 500',  price: '9 775' },
+      { days: 3, meals: 12, label: 'Базовый',         discount: null,  old: null,      price: '3 750' },
+      { days: 5, meals: 20, label: 'Скидка 10%',       discount: '10%', old: '6 250',   price: '5 625' },
+      { days: 7, meals: 28, label: 'Самый выгодный',   discount: '15%', old: '8 750',   price: '7 438' },
     ],
   },
   {
@@ -50,9 +58,9 @@ const plans = [
     mealsPerDay: 5,
     popular: false,
     options: [
-      { days: 3, meals: 15, label: 'Базовый',         discount: null,  old: null,      price: '6 000' },
-      { days: 5, meals: 25, label: 'Скидка 10%',       discount: '10%', old: '10 000',  price: '9 000' },
-      { days: 7, meals: 35, label: 'Самый выгодный',   discount: '15%', old: '14 000',  price: '11 900' },
+      { days: 3, meals: 15, label: 'Базовый',         discount: null,  old: null,      price: '4 650' },
+      { days: 5, meals: 25, label: 'Скидка 10%',       discount: '10%', old: '7 750',   price: '6 975' },
+      { days: 7, meals: 35, label: 'Самый выгодный',   discount: '15%', old: '10 850',  price: '9 223' },
     ],
   },
 ];
@@ -445,7 +453,7 @@ const Index = () => {
                 )}
                 <div className="font-display font-bold text-4xl uppercase mb-1">{p.kcal} <span className="text-lg text-muted-foreground">ккал</span></div>
                 <p className="font-semibold text-primary mb-1">{p.name}</p>
-                <p className="text-sm text-muted-foreground mb-5">{p.mealsPerDay} блюда в день · {opt.meals} блюд</p>
+                <p className="text-sm text-muted-foreground mb-5">{p.mealsPerDay} блюда в день · {opt.meals} {pluralMeals(opt.meals)}</p>
 
                 <div className="grid grid-cols-3 gap-1.5 mb-6">
                   {p.options.map(o => (
