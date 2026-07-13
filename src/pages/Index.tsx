@@ -47,9 +47,9 @@ const plans = [
     mealsPerDay: 4,
     popular: true,
     options: [
-      { days: 3, meals: 12, label: 'Базовый',         discount: null,  old: null,      price: '3 750' },
-      { days: 5, meals: 20, label: 'Скидка 10%',       discount: '10%', old: '6 250',   price: '5 625' },
-      { days: 7, meals: 28, label: 'Самый выгодный',   discount: '15%', old: '8 750',   price: '7 438' },
+      { days: 3, meals: 12, label: 'Базовый',         discount: null,  old: null,      price: '4 050' },
+      { days: 5, meals: 20, label: 'Скидка 10%',       discount: '10%', old: '6 750',   price: '6 075' },
+      { days: 7, meals: 28, label: 'Самый выгодный',   discount: '15%', old: '9 450',   price: '8 033' },
     ],
   },
   {
