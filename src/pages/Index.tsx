@@ -461,7 +461,7 @@ const Index = () => {
                 )}
                 <div className="font-display font-bold text-4xl uppercase mb-1">{p.kcal} <span className="text-lg text-muted-foreground">ккал</span></div>
                 <p className="font-semibold text-primary mb-1">{p.name}</p>
-                <p className="text-sm text-muted-foreground mb-5">{p.mealsPerDay} блюда в день · {opt.meals} {pluralMeals(opt.meals)}</p>
+                <p className="text-sm text-muted-foreground mb-5">{p.mealsPerDay} {typeof p.mealsPerDay === 'number' ? pluralMeals(p.mealsPerDay) : 'блюда'} в день · {opt.meals} {pluralMeals(opt.meals)}</p>
 
                 <div className="grid grid-cols-3 gap-1.5 mb-6">
                   {p.options.map(o => (
