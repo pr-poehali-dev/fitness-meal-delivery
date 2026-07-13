@@ -26,6 +26,14 @@ const pluralMeals = (n: number) => {
   return 'блюд';
 };
 
+const pluralDays = (n: number) => {
+  const mod10 = n % 10;
+  const mod100 = n % 100;
+  if (mod10 === 1 && mod100 !== 11) return 'день';
+  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 10 || mod100 >= 20)) return 'дня';
+  return 'дней';
+};
+
 const scrollTo = (id: string) =>
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
@@ -460,7 +468,7 @@ const Index = () => {
                     <button key={o.days}
                       onClick={() => setSelectedDays(prev => ({ ...prev, [p.kcal]: o.days }))}
                       className={`rounded-lg border py-2 text-xs font-semibold transition-colors ${days === o.days ? 'border-primary bg-primary/15 text-primary' : 'border-border text-muted-foreground hover:border-primary/40'}`}>
-                      {o.days} дней
+                      {o.days} {pluralDays(o.days)}
                       {o.discount && <div className="text-[10px] opacity-80">{o.discount}</div>}
                     </button>
                   ))}
@@ -471,7 +479,7 @@ const Index = () => {
                     ? <><span className="text-muted-foreground line-through mr-2">{opt.old} ₽</span><span className="font-display font-bold text-3xl">{opt.price} ₽</span></>
                     : <span className="font-display font-bold text-3xl">{opt.price} ₽</span>
                   }
-                  <span className="text-sm text-muted-foreground"> / {opt.days} дней</span>
+                  <span className="text-sm text-muted-foreground"> / {opt.days} {pluralDays(opt.days)}</span>
                 </div>
 
                 {opt.label !== 'Базовый' && (
