@@ -470,7 +470,7 @@ const Index = () => {
                     { l: 'У', v: p.carbs },
                   ].map(m => (
                     <div key={m.l} className="rounded-lg bg-background/60 border border-border py-2 text-center">
-                      <div className="font-display font-bold text-lg leading-none">{m.v}<span className="text-[10px] text-muted-foreground">г</span></div>
+                      <div className="font-display font-bold text-lg leading-none">{m.v}<span className="text-[10px] text-muted-foreground ml-0.5">г</span></div>
                       <div className="text-[10px] text-muted-foreground mt-1">{m.l}</div>
                     </div>
                   ))}
