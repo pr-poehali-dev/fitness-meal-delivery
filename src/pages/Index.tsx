@@ -162,7 +162,7 @@ const Index = () => {
   const [selectedDays, setSelectedDays] = useState<Record<number, number>>({ 1000: 7, 1500: 7, 2000: 7, 2500: 7 });
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen w-full max-w-full bg-background text-foreground overflow-x-clip">
       {/* NAV */}
       <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/70 border-b border-border">
         <div className="container flex items-center justify-between h-16">
