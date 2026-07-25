@@ -16,7 +16,7 @@ const FREEZER_IMG =
 const BOX_IMG =
   'https://cdn.poehali.dev/projects/6adee1cd-5caa-4d4a-96ad-0526c2884609/files/40ceaaeb-5ae3-4883-b211-f6158465bb5a.jpg';
 const ATHLETE_IMG =
-  'https://cdn.poehali.dev/projects/6adee1cd-5caa-4d4a-96ad-0526c2884609/files/68e75d46-b8d1-42ec-b2fa-760a974629a9.jpg';
+  'https://cdn.poehali.dev/projects/6adee1cd-5caa-4d4a-96ad-0526c2884609/bucket/ad2d59dc-0342-4d8c-a723-76c2889c2ad5.jpg';
 
 const pluralMeals = (n: number) => {
   const mod10 = n % 10;
@@ -503,7 +503,7 @@ const Index = () => {
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-10 items-center max-w-5xl mx-auto">
           <div className="relative rounded-2xl overflow-hidden h-full min-h-80 hidden lg:block">
-            <img src={ATHLETE_IMG} alt="Результат фитнес-питания" className="w-full h-full object-cover" />
+            <img src={ATHLETE_IMG} alt="Результат фитнес-питания" className="w-full h-full object-cover object-top" />
             <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">
               <p className="font-display font-bold text-2xl uppercase leading-tight mb-1">Твой результат начинается здесь</p>
