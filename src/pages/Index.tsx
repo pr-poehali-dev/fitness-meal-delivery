@@ -520,14 +520,11 @@ const Index = () => {
             </div>
           </div>
           <div className="rounded-3xl border border-primary/40 bg-card p-8 md:p-10 glow">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary mb-6">
-              <Icon name="Lock" size={15} /> Осталось 5 слотов
-            </div>
             <h2 className="font-display font-bold uppercase text-3xl md:text-4xl leading-[1.45] mb-4">
 Расчёт готов — доведём его до идеала вместе
             </h2>
             <p className="text-muted-foreground mb-8">
-              Ваш персональный расчёт готов и зафиксирован системой. Оставьте заявку прямо сейчас — наш эксперт свяжется с вами, чтобы бесплатно скорректировать КБЖУ с учётом ваших индивидуальных особенностей.
+              Оставьте заявку — бесплатно поможем рассчитать КБЖУ под вашу цель с технологом и забронируем один из 5 слотов на тестовую неделю со скидкой.
             </p>
             {sent ? (
               <div className="rounded-2xl bg-primary/15 border border-primary/40 p-8 text-center">
