@@ -205,7 +205,7 @@ const Index = () => {
                 <Icon name="ArrowRight" size={18} className="ml-1" />
               </Button>
               <Button size="lg" variant="outline" onClick={() => scrollTo('calc')} className="text-base h-13 px-7 border-primary/40">
-                Рассчитать калории
+                Предварительно рассчитать калории
               </Button>
             </div>
           </div>
