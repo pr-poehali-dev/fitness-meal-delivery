@@ -199,12 +199,12 @@ const Index = () => {
             <p className="text-lg text-muted-foreground max-w-xl mb-8 animate-fade-up" style={{ animationDelay: '0.2s' }}>
               Отправьте заявку, и мы сделаем индивидуальный расчёт КБЖУ исходя из ваших целей.
             </p>
-            <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: '0.3s' }}>
-              <Button size="lg" onClick={() => scrollTo('form')} className="text-base font-semibold glow h-13 px-7">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 animate-fade-up" style={{ animationDelay: '0.3s' }}>
+              <Button size="lg" onClick={() => scrollTo('form')} className="w-full sm:w-auto justify-center text-base font-semibold glow h-13 px-7">
                 Отправить заявку
                 <Icon name="ArrowRight" size={18} className="ml-1" />
               </Button>
-              <Button size="lg" variant="outline" onClick={() => scrollTo('calc')} className="text-base h-13 px-7 border-primary/40">
+              <Button size="lg" variant="outline" onClick={() => scrollTo('calc')} className="w-full sm:w-auto justify-center text-base h-13 px-7 border-primary/40">
                 Предварительно рассчитать калории
               </Button>
             </div>
