@@ -297,8 +297,8 @@ const Index = () => {
               <p className="font-semibold mb-3">Ваш пол</p>
               <div className="grid grid-cols-2 gap-2">
                 {[
-                  { v: 'male', l: 'Мужской', i: 'Mars' },
-                  { v: 'female', l: 'Женский', i: 'Venus' },
+                  { v: 'male', l: 'Мужской', i: 'User' },
+                  { v: 'female', l: 'Женский', i: 'UserRound' },
                 ].map((g) => (
                   <button key={g.v} onClick={() => setGender(g.v as typeof gender)}
                     className={`rounded-xl border py-3 flex items-center justify-center gap-2 text-sm font-medium transition-colors ${gender === g.v ? 'border-primary bg-primary/15 text-primary' : 'border-border text-muted-foreground hover:border-primary/40'}`}>
