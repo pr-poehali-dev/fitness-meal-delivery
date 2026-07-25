@@ -492,7 +492,7 @@ const Index = () => {
                 </div>
 
                 {opt.label !== 'Базовый' && (
-                  <div className="mb-5 inline-flex items-center gap-1.5 text-xs font-semibold text-primary bg-primary/10 border border-primary/30 rounded-full px-3 py-1 w-fit">
+                  <div className="mb-5 inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-red-500 border border-red-500 rounded-full px-3 py-1 w-fit shadow-sm">
                     <Icon name="Tag" size={12} /> {opt.label}
                   </div>
                 )}
