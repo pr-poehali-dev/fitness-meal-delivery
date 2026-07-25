@@ -41,12 +41,12 @@ const plans = [
   {
     kcal: 1000,
     name: 'Лайт',
-    mealsPerDay: 3,
+    mealsPerDay: 2,
     protein: 63, fat: 31, carbs: 117,
     popular: false,
     options: [
-      { days: 5, meals: 15, label: 'Скидка 10%',       discount: '10%', old: '5 250',   price: '4 725' },
-      { days: 7, meals: 21, label: 'Самый выгодный',   discount: '15%', old: '7 350',   price: '6 248' },
+      { days: 5, meals: 10, label: 'Базовый',          discount: null,  old: null,      price: '4 300' },
+      { days: 7, meals: 14, label: 'Скидка 10%',       discount: '10%', old: '6 020',   price: '5 418' },
     ],
   },
   {
