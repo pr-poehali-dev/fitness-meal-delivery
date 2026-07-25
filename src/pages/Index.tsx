@@ -515,8 +515,8 @@ const Index = () => {
             <img src={ATHLETE_IMG} alt="Результат фитнес-питания" className="w-full h-full object-cover object-top" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 text-center">
-              <p className="font-display font-bold text-2xl uppercase leading-tight mb-1 text-white">Твой результат начинается здесь</p>
-              <p className="text-sm text-white/80">Первая тестовая партия — по себестоимости</p>
+              <p className="font-display font-bold text-2xl uppercase leading-tight mb-1 text-white">Разработано профессиональным фитнес-тренером</p>
+              <p className="text-sm text-white/80">Для твоего результата!</p>
             </div>
           </div>
           <div className="rounded-3xl border border-primary/40 bg-card p-8 md:p-10 glow">
