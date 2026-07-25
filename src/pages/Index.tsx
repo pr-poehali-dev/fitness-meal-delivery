@@ -368,16 +368,19 @@ const Index = () => {
           </div>
 
           <div className="rounded-2xl border border-primary/40 bg-gradient-to-br from-card to-primary/5 p-8 flex flex-col glow">
-            <p className="text-muted-foreground text-sm mb-1">Ваша дневная норма</p>
-            <div className="font-display font-bold text-6xl text-primary mb-6">
-              {result.kcal} <span className="text-2xl text-foreground">ккал</span>
+            <div className="flex-1 flex flex-col items-center justify-center text-center py-6">
+              <p className="text-muted-foreground text-sm uppercase tracking-widest mb-3">Ваша дневная норма</p>
+              <div className="font-display font-bold text-primary leading-none">
+                <span className="text-8xl">{result.kcal}</span>
+                <span className="block text-3xl text-foreground mt-2">ккал</span>
+              </div>
             </div>
-            <div className="mt-auto rounded-xl bg-primary/10 border border-primary/30 p-5">
-              <p className="text-sm text-muted-foreground mb-1">Рекомендуем тариф</p>
-              <p className="font-display font-bold text-2xl uppercase mb-1">{result.plan.kcal} ккал · {result.plan.name}</p>
+            <div className="rounded-xl bg-primary/10 border border-primary/30 p-6 text-center">
+              <p className="text-sm text-muted-foreground mb-2">Рекомендуем тариф</p>
+              <p className="font-display font-bold text-3xl uppercase mb-1">{result.plan.kcal} ккал · {result.plan.name}</p>
               <p className="text-sm text-muted-foreground">{result.plan.mealsPerDay} блюда в день</p>
             </div>
-            <Button onClick={() => scrollTo('form')} className="mt-6 h-12 font-semibold">
+            <Button onClick={() => scrollTo('form')} className="mt-6 h-13 text-base font-semibold">
               Забронировать этот тариф
               <Icon name="ArrowRight" size={18} className="ml-1" />
             </Button>
