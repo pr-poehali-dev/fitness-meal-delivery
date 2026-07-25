@@ -39,9 +39,21 @@ const scrollTo = (id: string) =>
 
 const plans = [
   {
+    kcal: 1000,
+    name: 'Лайт',
+    mealsPerDay: 3,
+    protein: 63, fat: 31, carbs: 117,
+    popular: false,
+    options: [
+      { days: 5, meals: 15, label: 'Скидка 10%',       discount: '10%', old: '5 250',   price: '4 725' },
+      { days: 7, meals: 21, label: 'Самый выгодный',   discount: '15%', old: '7 350',   price: '6 248' },
+    ],
+  },
+  {
     kcal: 1500,
-    name: 'Сушка и рельеф',
-    mealsPerDay: '3–4',
+    name: 'Стандарт',
+    mealsPerDay: 3,
+    protein: 95, fat: 46, carbs: 175,
     popular: false,
     options: [
       { days: 3, meals: 9,  label: 'Базовый',         discount: null,  old: null,      price: '3 450' },
@@ -51,8 +63,9 @@ const plans = [
   },
   {
     kcal: 2000,
-    name: 'Баланс и форма',
+    name: 'Актив',
     mealsPerDay: 4,
+    protein: 132, fat: 64, carbs: 224,
     popular: true,
     options: [
       { days: 3, meals: 12, label: 'Базовый',         discount: null,  old: null,      price: '4 050' },
@@ -62,8 +75,9 @@ const plans = [
   },
   {
     kcal: 2500,
-    name: 'Набор массы',
+    name: 'Макс',
     mealsPerDay: 5,
+    protein: 152, fat: 76, carbs: 302,
     popular: false,
     options: [
       { days: 3, meals: 15, label: 'Базовый',         discount: null,  old: null,      price: '4 650' },
@@ -146,7 +160,7 @@ const Index = () => {
     return { kcal, plan };
   }, [gender, age, height, weight, activity, goal]);
 
-  const [selectedDays, setSelectedDays] = useState<Record<number, number>>({ 1500: 7, 2000: 7, 2500: 7 });
+  const [selectedDays, setSelectedDays] = useState<Record<number, number>>({ 1000: 7, 1500: 7, 2000: 7, 2500: 7 });
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -430,7 +444,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <div className="grid md:grid-cols-3 gap-6 items-start">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
           {plans.map((p) => {
             const days = selectedDays[p.kcal];
             const opt = p.options.find(o => o.days === days)!;
@@ -444,9 +458,22 @@ const Index = () => {
                 )}
                 <div className="font-display font-bold text-4xl uppercase mb-1">{p.kcal} <span className="text-lg text-muted-foreground">ккал</span></div>
                 <p className="font-semibold text-primary mb-1">{p.name}</p>
-                <p className="text-sm text-muted-foreground mb-5">{p.mealsPerDay} {typeof p.mealsPerDay === 'number' ? pluralMeals(p.mealsPerDay) : 'блюда'} в день · {opt.meals} {pluralMeals(opt.meals)}</p>
+                <p className="text-sm text-muted-foreground mb-4">{p.mealsPerDay} {typeof p.mealsPerDay === 'number' ? pluralMeals(p.mealsPerDay) : 'блюда'} в день · {opt.meals} {pluralMeals(opt.meals)}</p>
 
-                <div className="grid grid-cols-3 gap-1.5 mb-6">
+                <div className="grid grid-cols-3 gap-1.5 mb-5">
+                  {[
+                    { l: 'Б', v: p.protein },
+                    { l: 'Ж', v: p.fat },
+                    { l: 'У', v: p.carbs },
+                  ].map(m => (
+                    <div key={m.l} className="rounded-lg bg-background/60 border border-border py-2 text-center">
+                      <div className="font-display font-bold text-lg leading-none">{m.v}<span className="text-[10px] text-muted-foreground">г</span></div>
+                      <div className="text-[10px] text-muted-foreground mt-1">{m.l}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className={`grid gap-1.5 mb-6 ${p.options.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
                   {p.options.map(o => (
                     <button key={o.days}
                       onClick={() => setSelectedDays(prev => ({ ...prev, [p.kcal]: o.days }))}
