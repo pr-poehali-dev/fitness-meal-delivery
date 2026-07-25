@@ -193,18 +193,15 @@ const Index = () => {
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary mb-6 animate-fade-up">
               <Icon name="Zap" size={15} /> Шоковая заморозка −40°C
             </div>
-            <h1 className="font-display font-bold uppercase leading-[0.95] text-5xl md:text-7xl mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
-              Следишь<br />
-              за фигурой,<br />
-              но устал<br />
-              <span className="text-primary">от готовки?</span>
+            <h1 className="font-display font-bold uppercase leading-[1.05] text-3xl md:text-5xl mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
+              С нашим готовым рационом питания вы <span className="text-primary">гарантированно улучшите качество тела</span> всего за 30 дней и освободите до 8 часов в неделю от готовки
             </h1>
             <p className="text-lg text-muted-foreground max-w-xl mb-8 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-              Готовые фитнес-рационы шоковой заморозки с честным КБЖУ. Доставим еду на неделю вперёд и гарантируем улучшение качества тела.
+              Отправьте заявку, и мы сделаем индивидуальный расчёт КБЖУ исходя из ваших целей.
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: '0.3s' }}>
-              <Button size="lg" onClick={() => scrollTo('plans')} className="text-base font-semibold glow h-13 px-7">
-                Выбрать рацион под мою цель
+              <Button size="lg" onClick={() => scrollTo('form')} className="text-base font-semibold glow h-13 px-7">
+                Отправить заявку
                 <Icon name="ArrowRight" size={18} className="ml-1" />
               </Button>
               <Button size="lg" variant="outline" onClick={() => scrollTo('calc')} className="text-base h-13 px-7 border-primary/40">
