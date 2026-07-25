@@ -56,9 +56,9 @@ const plans = [
     protein: 95, fat: 46, carbs: 175,
     popular: false,
     options: [
-      { days: 3, meals: 9,  label: 'Базовый',         discount: null,  old: null,      price: '3 450' },
-      { days: 5, meals: 15, label: 'Скидка 10%',       discount: '10%', old: '5 750',   price: '5 175' },
-      { days: 7, meals: 21, label: 'Самый выгодный',   discount: '15%', old: '8 050',   price: '6 843' },
+      { days: 3, meals: 9,  label: 'Базовый',         discount: null,  old: null,      price: '3 900' },
+      { days: 5, meals: 15, label: 'Скидка 10%',       discount: '10%', old: '6 500',   price: '5 850' },
+      { days: 7, meals: 21, label: 'Самый выгодный',   discount: '15%', old: '9 100',   price: '7 735' },
     ],
   },
   {
@@ -68,9 +68,9 @@ const plans = [
     protein: 132, fat: 64, carbs: 224,
     popular: true,
     options: [
-      { days: 3, meals: 12, label: 'Базовый',         discount: null,  old: null,      price: '4 050' },
-      { days: 5, meals: 20, label: 'Скидка 10%',       discount: '10%', old: '6 750',   price: '6 075' },
-      { days: 7, meals: 28, label: 'Самый выгодный',   discount: '15%', old: '9 450',   price: '8 033' },
+      { days: 3, meals: 12, label: 'Базовый',         discount: null,  old: null,      price: '4 900' },
+      { days: 5, meals: 20, label: 'Скидка 10%',       discount: '10%', old: '8 200',   price: '7 380' },
+      { days: 7, meals: 28, label: 'Самый выгодный',   discount: '15%', old: '11 500',  price: '9 775' },
     ],
   },
   {
@@ -80,9 +80,9 @@ const plans = [
     protein: 152, fat: 76, carbs: 302,
     popular: false,
     options: [
-      { days: 3, meals: 15, label: 'Базовый',         discount: null,  old: null,      price: '4 650' },
-      { days: 5, meals: 25, label: 'Скидка 10%',       discount: '10%', old: '7 750',   price: '6 975' },
-      { days: 7, meals: 35, label: 'Самый выгодный',   discount: '15%', old: '10 850',  price: '9 223' },
+      { days: 3, meals: 15, label: 'Базовый',         discount: null,  old: null,      price: '6 000' },
+      { days: 5, meals: 25, label: 'Скидка 10%',       discount: '10%', old: '10 000',  price: '9 000' },
+      { days: 7, meals: 35, label: 'Самый выгодный',   discount: '15%', old: '14 000',  price: '11 900' },
     ],
   },
 ];
