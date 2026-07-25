@@ -193,8 +193,8 @@ const Index = () => {
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary mb-6 animate-fade-up">
               <Icon name="Zap" size={15} /> Шоковая заморозка −40°C
             </div>
-            <h1 className="font-display font-bold uppercase leading-[1.45] text-3xl md:text-5xl mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
-              С нашим готовым рационом питания вы <span className="text-primary">гарантированно улучшите качество тела</span> всего за 30 дней и освободите до 8 часов в неделю от готовки
+            <h1 className="font-display font-bold uppercase leading-[1.45] text-3xl md:text-5xl mb-6 animate-fade-up" style={{ animationDelay: '0.1s', textShadow: '0 1px 8px rgba(0,0,0,0.35)' }}>
+              С нашим готовым рационом питания вы <span className="text-primary" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.55), 0 2px 12px rgba(0,0,0,0.4)' }}>гарантированно улучшите качество тела</span> всего за 30 дней и освободите до 8 часов в неделю от готовки
             </h1>
             <p className="text-lg text-muted-foreground max-w-xl mb-8 animate-fade-up" style={{ animationDelay: '0.2s' }}>
               Отправьте заявку, и мы сделаем индивидуальный расчёт КБЖУ исходя из ваших целей.
