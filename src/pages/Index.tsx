@@ -15,8 +15,7 @@ const FREEZER_IMG =
   'https://cdn.poehali.dev/projects/6adee1cd-5caa-4d4a-96ad-0526c2884609/files/1e87d7db-bc57-4686-a5e2-2b34a739f4bb.jpg';
 const BOX_IMG =
   'https://cdn.poehali.dev/projects/6adee1cd-5caa-4d4a-96ad-0526c2884609/files/40ceaaeb-5ae3-4883-b211-f6158465bb5a.jpg';
-const ATHLETE_IMG =
-  'https://cdn.poehali.dev/projects/6adee1cd-5caa-4d4a-96ad-0526c2884609/bucket/ad2d59dc-0342-4d8c-a723-76c2889c2ad5.jpg';
+const ATHLETE_IMG = '/coach-gym.jpg';
 
 const pluralMeals = (n: number) => {
   const mod10 = n % 10;
