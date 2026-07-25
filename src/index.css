@@ -106,6 +106,12 @@
   .font-display {
     font-family: "Oswald", sans-serif;
   }
+  h1,
+  h2,
+  h3 {
+    line-height: 1.5 !important;
+    padding-top: 0.08em;
+  }
 }
 
 @layer utilities {
