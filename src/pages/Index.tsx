@@ -367,7 +367,7 @@ const Index = () => {
             <div className="flex-1 flex flex-col items-center justify-center text-center py-6">
               <p className="text-muted-foreground text-sm uppercase tracking-widest mb-3">Ваша дневная норма</p>
               <div className="font-display font-bold text-primary leading-none">
-                <span className="text-8xl">{result.kcal}</span>
+                <span className="text-7xl sm:text-8xl">{result.kcal}</span>
                 <span className="block text-3xl text-foreground mt-2">ккал</span>
               </div>
             </div>
