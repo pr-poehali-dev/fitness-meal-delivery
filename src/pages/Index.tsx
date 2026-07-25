@@ -193,7 +193,7 @@ const Index = () => {
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary mb-6 animate-fade-up">
               <Icon name="Zap" size={15} /> Шоковая заморозка −40°C
             </div>
-            <h1 className="font-display font-bold uppercase leading-[1.25] text-3xl md:text-5xl mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
+            <h1 className="font-display font-bold uppercase leading-[1.45] text-3xl md:text-5xl mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
               С нашим готовым рационом питания вы <span className="text-primary">гарантированно улучшите качество тела</span> всего за 30 дней и освободите до 8 часов в неделю от готовки
             </h1>
             <p className="text-lg text-muted-foreground max-w-xl mb-8 animate-fade-up" style={{ animationDelay: '0.2s' }}>
@@ -230,7 +230,7 @@ const Index = () => {
       {/* PROBLEM */}
       <section className="container py-24">
         <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-3">Проблема</p>
-        <h2 className="font-display font-bold uppercase text-3xl md:text-5xl max-w-3xl mb-14 leading-[1.25]">
+        <h2 className="font-display font-bold uppercase text-3xl md:text-5xl max-w-3xl mb-14 leading-[1.45]">
           Почему привычные способы питания не доводят вас до результата?
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
@@ -252,7 +252,7 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-14">
             <div>
               <p className="text-secondary font-semibold uppercase tracking-widest text-sm mb-3">Решение</p>
-              <h2 className="font-display font-bold uppercase text-3xl md:text-5xl max-w-3xl mb-6 leading-[1.25]">
+              <h2 className="font-display font-bold uppercase text-3xl md:text-5xl max-w-3xl mb-6 leading-[1.45]">
                 Сбалансированное питание на неделю в одной коробке
               </h2>
               <p className="text-muted-foreground text-lg">
@@ -287,7 +287,7 @@ const Index = () => {
       <section id="calc" className="container py-24">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-3">Калькулятор калорий</p>
-          <h2 className="font-display font-bold uppercase text-3xl md:text-5xl leading-[1.25]">
+          <h2 className="font-display font-bold uppercase text-3xl md:text-5xl leading-[1.45]">
             Подбери тариф под свою цель
           </h2>
         </div>
@@ -388,7 +388,7 @@ const Index = () => {
       <section id="compare" className="relative py-24 grid-bg border-y border-border">
         <div className="container">
           <p className="text-secondary font-semibold uppercase tracking-widest text-sm mb-3">Сравнение</p>
-          <h2 className="font-display font-bold uppercase text-3xl md:text-5xl max-w-3xl mb-14 leading-[1.25]">
+          <h2 className="font-display font-bold uppercase text-3xl md:text-5xl max-w-3xl mb-14 leading-[1.45]">
             В чём отличие от привычных альтернатив?
           </h2>
           <div className="space-y-4 mb-10">
@@ -427,7 +427,7 @@ const Index = () => {
         <div className="grid lg:grid-cols-2 gap-10 items-center mb-14">
           <div>
             <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-3">Тарифы</p>
-            <h2 className="font-display font-bold uppercase text-3xl md:text-5xl leading-[1.25] mb-4">
+            <h2 className="font-display font-bold uppercase text-3xl md:text-5xl leading-[1.45] mb-4">
               Выберите программу для вашей цели
             </h2>
             <p className="text-muted-foreground">
@@ -523,7 +523,7 @@ const Index = () => {
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary mb-6">
               <Icon name="Lock" size={15} /> Осталось 5 слотов
             </div>
-            <h2 className="font-display font-bold uppercase text-3xl md:text-4xl leading-[1.25] mb-4">
+            <h2 className="font-display font-bold uppercase text-3xl md:text-4xl leading-[1.45] mb-4">
 Расчёт готов — доведём его до идеала вместе
             </h2>
             <p className="text-muted-foreground mb-8">
@@ -560,7 +560,7 @@ const Index = () => {
       <section id="faq" className="container py-24">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-3">FAQ</p>
-          <h2 className="font-display font-bold uppercase text-3xl md:text-5xl leading-[1.25]">
+          <h2 className="font-display font-bold uppercase text-3xl md:text-5xl leading-[1.45]">
             Частые вопросы
           </h2>
         </div>
