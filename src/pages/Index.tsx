@@ -513,10 +513,10 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-10 items-center max-w-5xl mx-auto">
           <div className="relative rounded-2xl overflow-hidden h-full min-h-80 hidden lg:block">
             <img src={ATHLETE_IMG} alt="Результат фитнес-питания" className="w-full h-full object-cover object-top" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/70 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">
-              <p className="font-display font-bold text-2xl uppercase leading-tight mb-1">Твой результат начинается здесь</p>
-              <p className="text-sm text-muted-foreground">Первая тестовая партия — по себестоимости</p>
+              <p className="font-display font-bold text-2xl uppercase leading-tight mb-1 text-white">Твой результат начинается здесь</p>
+              <p className="text-sm text-white/80">Первая тестовая партия — по себестоимости</p>
             </div>
           </div>
           <div className="rounded-3xl border border-primary/40 bg-card p-8 md:p-10 glow">
