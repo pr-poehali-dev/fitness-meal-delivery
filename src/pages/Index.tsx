@@ -140,15 +140,10 @@ const Index = () => {
     const base = bmr * activity;
     const factor = goal === 'cut' ? 0.8 : goal === 'gain' ? 1.15 : 1;
     const kcal = Math.round((base * factor) / 50) * 50;
-    const proteinPerKg = goal === 'cut' ? 2.2 : goal === 'gain' ? 1.9 : 1.8;
-    const fatPerKg = goal === 'cut' ? 0.8 : goal === 'gain' ? 1.1 : 1;
-    const protein = Math.round(weight * proteinPerKg);
-    const fat = Math.round(weight * fatPerKg);
-    const carbs = Math.max(0, Math.round((kcal - protein * 4 - fat * 9) / 4));
     const plan = plans.reduce((a, b) =>
       Math.abs(b.kcal - kcal) < Math.abs(a.kcal - kcal) ? b : a
     );
-    return { kcal, protein, fat, carbs, plan };
+    return { kcal, plan };
   }, [gender, age, height, weight, activity, goal]);
 
   const [selectedDays, setSelectedDays] = useState<Record<number, number>>({ 1500: 7, 2000: 7, 2500: 7 });
@@ -200,7 +195,7 @@ const Index = () => {
                 <Icon name="ArrowRight" size={18} className="ml-1" />
               </Button>
               <Button size="lg" variant="outline" onClick={() => scrollTo('calc')} className="text-base h-13 px-7 border-primary/40">
-                Рассчитать КБЖУ
+                Рассчитать калории
               </Button>
             </div>
           </div>
@@ -281,7 +276,7 @@ const Index = () => {
       {/* CALCULATOR */}
       <section id="calc" className="container py-24">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-3">Калькулятор КБЖУ</p>
+          <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-3">Калькулятор калорий</p>
           <h2 className="font-display font-bold uppercase text-3xl md:text-5xl leading-tight">
             Подбери тариф под свою цель
           </h2>
@@ -362,18 +357,6 @@ const Index = () => {
             <p className="text-muted-foreground text-sm mb-1">Ваша дневная норма</p>
             <div className="font-display font-bold text-6xl text-primary mb-6">
               {result.kcal} <span className="text-2xl text-foreground">ккал</span>
-            </div>
-            <div className="grid grid-cols-3 gap-3 mb-8">
-              {[
-                { l: 'Белки', v: result.protein },
-                { l: 'Жиры', v: result.fat },
-                { l: 'Углеводы', v: result.carbs },
-              ].map((m) => (
-                <div key={m.l} className="rounded-xl bg-background/60 border border-border p-4 text-center">
-                  <div className="font-display font-bold text-2xl">{m.v}<span className="text-sm text-muted-foreground">г</span></div>
-                  <div className="text-xs text-muted-foreground mt-1">{m.l}</div>
-                </div>
-              ))}
             </div>
             <div className="mt-auto rounded-xl bg-primary/10 border border-primary/30 p-5">
               <p className="text-sm text-muted-foreground mb-1">Рекомендуем тариф</p>
