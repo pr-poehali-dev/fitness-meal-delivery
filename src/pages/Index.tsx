@@ -514,7 +514,7 @@ const Index = () => {
           <div className="relative rounded-2xl overflow-hidden h-full min-h-80 hidden lg:block">
             <img src={ATHLETE_IMG} alt="Результат фитнес-питания" className="w-full h-full object-cover object-top" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6">
+            <div className="absolute bottom-6 left-6 right-6 text-center">
               <p className="font-display font-bold text-2xl uppercase leading-tight mb-1 text-white">Твой результат начинается здесь</p>
               <p className="text-sm text-white/80">Первая тестовая партия — по себестоимости</p>
             </div>
