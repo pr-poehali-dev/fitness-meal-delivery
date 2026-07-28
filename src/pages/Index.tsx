@@ -291,8 +291,8 @@ const Index = () => {
             Подбери тариф под свою цель
           </h2>
         </div>
-        <div className="grid lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          <div className="rounded-2xl border border-border bg-card p-8 space-y-8">
+        <div className="grid lg:grid-cols-2 gap-6 w-full max-w-5xl mx-auto">
+          <div className="min-w-0 rounded-2xl border border-border bg-card p-8 space-y-8">
             <div>
               <p className="font-semibold mb-3">Ваш пол</p>
               <div className="grid grid-cols-2 gap-2">
@@ -363,7 +363,7 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-primary/40 bg-gradient-to-br from-card to-primary/5 p-8 flex flex-col glow">
+          <div className="min-w-0 rounded-2xl border border-primary/40 bg-gradient-to-br from-card to-primary/5 p-8 flex flex-col glow">
             <div className="flex-1 flex flex-col items-center justify-center text-center py-6">
               <p className="text-muted-foreground text-sm uppercase tracking-widest mb-3">Ваша дневная норма</p>
               <div className="font-display font-bold text-primary leading-none">
